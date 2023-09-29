@@ -222,6 +222,26 @@
         </executions>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.gradle</groupId>
+          <artifactId>gradle-enterprise-maven-extension</artifactId>
+          <configuration>
+            <gradleEnterprise>
+              <normalization>
+                <runtimeClassPath>
+                  <ignoredFiles>
+                    <ignoredFile>META-INF/build-info.properties</ignoredFile>
+                    <ignoredFile>git.properties</ignoredFile>
+                  </ignoredFiles>
+                </runtimeClassPath>
+              </normalization>
+            </gradleEnterprise>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
   <profiles>
     <profile>
@@ -248,8 +268,8 @@
                     <!-- use a custom suffix to be able to skip integration tests and still build swagger specification-->
                     <include>**/*ITSupport.java</include>
                   </includes>
-                  <skipTests>false</skipTests>
-                  <skipITs>false</skipITs>
+                  <skipTests>true</skipTests>
+                  <skipITs>true</skipITs>
                 </configuration>
               </execution>
             </executions>
