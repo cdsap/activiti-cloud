@@ -269,6 +269,22 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>com.gradle</groupId>
+          <artifactId>gradle-enterprise-maven-extension</artifactId>
+          <configuration>
+            <gradleEnterprise>
+              <normalization>
+                <runtimeClassPath>
+                  <ignoredFiles>
+                    <ignoredFile>META-INF/build-info.properties</ignoredFile>
+                    <ignoredFile>git.properties</ignoredFile>
+                  </ignoredFiles>
+                </runtimeClassPath>
+              </normalization>
+            </gradleEnterprise>
+          </configuration>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${maven-release-plugin.version}</version>
